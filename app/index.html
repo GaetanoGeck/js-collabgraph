@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<script type="text/javascript" src="model.js"></script>
+		<script type="text/javascript" src="participants.js"></script>
+		<script type="text/javascript" src="collaborations.js"></script>
+		<script type="text/javascript" src="style.js"></script>
+		<script type="text/javascript" src="draw.js"></script>
+
+		<script type="text/javascript">
+			mxBasePath = "../src";
+		</script>
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mxgraph@4.2.2/javascript/mxClient.min.js"></script>
+		<link href="style.css" rel="stylesheet">
+
+		<title>Collaboration Graph</title>
+	</head>
+	<body onload="drawCollaborationGraph(document.getElementById('collaborationGraph'))">
+		<div id="collaborationGraph">
+		</div>
+	</body>
+</html>
