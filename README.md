@@ -2,6 +2,8 @@
 
 Minimal JavaScript tool to visualise collaborations among participants in a circular graph.
 
+Each participant is represented by a node (yellow), displaying her/his name and the total duration of collaboration sessions. For those participants that have already collaborated, the number of collaborators is represented in an additional rectangle at the lower right corner of the node (blue in case of a single collaborator, green in case of multiple collaborators).
+
 ![Screenshot of the example collaboration graph](doc/example-graph.png)
 
 ## Example
@@ -23,7 +25,7 @@ const bertrand = new Participant("Bertrand");
 // further participants
 ```
 
-In each line, we define a participant by providing a name (e.g. `Ada`) that is used in each node of the graph and store it in a constant (e.g. `ada`) or variable. The latter can then be used in the collaboration protocol, as defined in `collaborations.js`.
+In each line, we define a participant by providing a name (e.g. `Ada`) that is used in each node of the graph and store it in a constant (e.g. `ada`) or variable. The latter can then be used in the collaboration protocol, defined in `collaborations.js`.
 
 ```
 session("2023-03-05", 1.5, [bertrand, iona]);
@@ -35,7 +37,8 @@ Each "collaboration session" is assigned a date, an approximate duration and an 
 ## Development notes
 
 In this first prototype,
-- the dates are ignored (i.e. all sessions are relevant) and
-- highlighting of nodes and edges depends on collaborations in an either/or fashion only.
+- the dates are ignored (i.e. all sessions are relevant);
+- highlighting of nodes and edges depends on collaborations in an either/or fashion only and
+- the style of the collaborator numbers varies between none/one/multiple collaborators only.
 
 This tool uses [mxgraph](https://jgraph.github.io/mxgraph/). See the project's page for more details on browser requirements.

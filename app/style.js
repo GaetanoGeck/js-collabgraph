@@ -22,10 +22,16 @@ function setDefaultStyle(graph) {
 	}
 }
 
-function vertexStyle(isCollaborator) {
+function participantVertexStyle(isCollaborator) {
 	const STYLE_DONE = 'fillColor=#ffe600;strokeWidth=2';
 	const STYLE_NONE = 'fillColor=#eeeeee;strokeWidth=1';
 	return isCollaborator ? STYLE_DONE : STYLE_NONE;
+}
+
+function coefficientVertexStyle(coefficient) {
+	const STYLE_MANY = 'fillColor=#9bd474;strokeWidth=1';
+	const STYLE_FEW = 'fillColor=#749ad4;strokeWidth=1';
+	return (coefficient > 1) ? STYLE_MANY : STYLE_FEW;
 }
 
 function edgeStyle(areCollaborators) {

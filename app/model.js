@@ -10,7 +10,8 @@ class Participant {
 
 	addCollaborationWith(duration, participants) {
 		this.collaborationTime += duration;
-		participants.forEach(p => this.collaborators.push(p));
+		participants.filter(p => p !== this)
+			.forEach(p => this.collaborators.push(p));
 	}
 
 	getCollaborationTime() {
@@ -20,6 +21,10 @@ class Participant {
 
 	isCollaborator() {
 		return this.collaborationTime > 0;
+	}
+
+	collaborationCoefficient() {
+		return this.collaborators.length
 	}
 }
 
