@@ -4,14 +4,14 @@ class Participant {
 	constructor(name) {
 		this.name = name;
 		this.collaborationTime = 0;
-		this.collaborators = [];
+		this.collaborators = new Set();
 		Participant.allParticipants.push(this);
 	}
 
 	addCollaborationWith(duration, participants) {
 		this.collaborationTime += duration;
 		participants.filter(p => p !== this)
-			.forEach(p => this.collaborators.push(p));
+			.forEach(p => this.collaborators.add(p));
 	}
 
 	getCollaborationTime() {
@@ -24,7 +24,7 @@ class Participant {
 	}
 
 	collaborationCoefficient() {
-		return this.collaborators.length
+		return this.collaborators.size
 	}
 }
 

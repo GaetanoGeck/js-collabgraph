@@ -75,7 +75,7 @@ function addEdges(graph) {
 			`defaultEdge;${style}`);
 
 		function isCollaboratorOf(from, to) {
-			return from.collaborators.includes(to);
+			return from.collaborators.has(to);
 		}
 	}
 }
