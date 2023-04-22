@@ -52,6 +52,7 @@ function addCollaborators(graph) {
 function addEdges(graph) {
 	var parent = graph.getDefaultParent();
 	var participants = Participant.allParticipants;
+	var edgeRater = Participant.computeStandardDeviationRater();
 
 	var edges = [];
 	for (var i=0; i<participants.length; i++) {
@@ -65,7 +66,7 @@ function addEdges(graph) {
 	graph.orderCells(true, edges);
 
 	function addEdge(from, to) {
-		var style = edgeStyle(isCollaboratorOf(from, to));
+		var style = edgeStyle(rateCollaborationWeight(from, to));
 		return graph.insertEdge( //
 			parent, //
 			null, //
@@ -78,5 +79,14 @@ function addEdges(graph) {
 			return from.collaborators.has(to);
 		}
 	}
+
+	function rateCollaborationWeight(from, to) {
+		const time = from.getCollaborationTimeWithParticipant(to);
+		return (time == 0) //
+			? 0 //
+			: edgeRater(time);
+	}
 }
+
+
 

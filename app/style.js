@@ -34,8 +34,21 @@ function coefficientVertexStyle(coefficient) {
 	return (coefficient > 1) ? STYLE_MANY : STYLE_FEW;
 }
 
-function edgeStyle(areCollaborators) {
-	const STYLE_DONE = 'strokeColor=#000000;strokeWidth=1.5';
+function edgeStyle(collaborationWeight) {
+	const STYLE_STRONG = 'strokeColor=#000000;strokeWidth=3.5';
+	const STYLE_NORMAL = 'strokeColor=#000000;strokeWidth=2.0';
+	const STYLE_WEAK = 'strokeColor=#000000;strokeWidth=1.0';
 	const STYLE_NONE = 'strokeColor=#dddddd;strokeWidth=1';
-	return areCollaborators ? STYLE_DONE : STYLE_NONE;
+	
+	switch(collaborationWeight) {
+		case 0:
+			return STYLE_NONE;
+		case 1:
+			return STYLE_WEAK;
+		case 2:
+			return STYLE_NORMAL;
+		case 3:
+		default:
+			return STYLE_STRONG;
+	}
 }

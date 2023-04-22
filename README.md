@@ -34,11 +34,14 @@ session("2023-03-05", 1.0, [donald, greta, henry]);
 
 Each "collaboration session" is assigned a date, an approximate duration and an array of participants. So far, the duration of all relevant sessions are summed up (rounded) and displayed in the nodes of the collaboration graph.
 
+Edges are displayed with varying styles, depending on the total collaboration time between two participants in comparison with the mean value of collabartion durations between participants and the standard deviation.
+
+In the example graph above, for instance, Henry and Donald spent 11 hours collaborating, which is more than the mean plus one standard deviation. Therefore, the edge between Henry and Donald is thicker than the other edges.
+
 ## Development notes
 
 In this first prototype,
-- the dates are ignored (i.e. all sessions are relevant);
-- highlighting of nodes and edges depends on collaborations in an either/or fashion only and
+- the dates are ignored (i.e. all sessions are relevant) and
 - the style of the collaborator numbers varies between none/one/multiple collaborators only.
 
 This tool uses [mxgraph](https://jgraph.github.io/mxgraph/). See the project's page for more details on browser requirements.
